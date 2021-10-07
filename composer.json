@@ -1,5 +1,5 @@
 {
-    "name": "thenlabs/ws-server",
+    "name": "thenlabs/websocket-server",
     "license": "MIT",
     "authors": [
         {
@@ -8,20 +8,23 @@
         }
     ],
     "require": {
+        "thenlabs/socket-server": "^1.1",
+        "thenlabs/http-server": "^1.0"
     },
     "require-dev": {
         "thenlabs/pyramidal-tests": "2.0.x-dev",
         "php-webdriver/webdriver": "^1.8",
-        "friendsofphp/php-cs-fixer": "^3.2"
+        "friendsofphp/php-cs-fixer": "^3.2",
+        "symfony/process": "^5.3"
     },
     "autoload": {
         "psr-4": {
-            "ThenLabs\\WSServer\\": "src/"
+            "ThenLabs\\WebSocketServer\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "ThenLabs\\WSServer\\Tests\\": "tests/"
+            "ThenLabs\\WebSocketServer\\Tests\\": "tests/"
         }
     }
 }

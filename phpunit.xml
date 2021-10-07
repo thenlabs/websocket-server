@@ -1,7 +1,16 @@
 <phpunit bootstrap="bootstrap.php">
+    <php>
+        <env name="SELENIUM_SERVER" value="http://localhost:4444/wd/hub"></env>
+        <env name="HOST" value="127.0.0.1"></env>
+        <env name="PORT" value="9090"></env>
+    </php>
+
     <testsuites>
-        <testsuite name="Main">
-            <directory>tests</directory>
+        <testsuite name="Unit">
+            <directory>tests/Unit</directory>
+        </testsuite>
+        <testsuite name="Functional">
+            <directory>tests/Functional</directory>
         </testsuite>
     </testsuites>
 </phpunit>

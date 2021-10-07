@@ -2,4 +2,4 @@ vendor/
 .*
 !.editorconfig
 !.gitignore
-!.php_cs.dist
+!.php-cs-fixer.dist.php

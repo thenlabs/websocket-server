@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client</title>
+    <style>
+        body > div {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input id="inputHost" type="text" placeholder="Host" value="127.0.0.1" size="12">
+        <input id="inputPort" type="number" placeholder="Port" value="9090" size="4">
+        <input id="inputNickname" type="text" placeholder="Nickname">
+        <button id="buttonConnect">Connect</button>
+    </div>
+
+    <div>
+        <textarea id="textarea" cols="60" rows="20" readonly></textarea>
+    </div>
+
+    <div>
+        <form id="form">
+            <input id="inputMessage" type="text" placeholder="Message" disabled>
+            <button id="buttonSend" type="submit" disabled>Send</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var ws = null;
+
+            const inputHost     = document.getElementById('inputHost');
+            const inputPort     = document.getElementById('inputPort');
+            const inputNickname = document.getElementById('inputNickname');
+            const buttonConnect = document.getElementById('buttonConnect');
+            const textarea      = document.getElementById('textarea');
+            const form          = document.getElementById('form');
+            const inputMessage  = document.getElementById('inputMessage');
+            const buttonSend    = document.getElementById('buttonSend');
+
+            buttonConnect.addEventListener('click', function () {
+                if (null === ws || 1 != ws.readyState) {
+                    ws = new WebSocket(`ws://${inputHost.value}:${inputPort.value}/${inputNickname.value}`);
+
+                    ws.onopen = function () {
+                        inputHost.setAttribute('disabled', true);
+                        inputPort.setAttribute('disabled', true);
+                        inputNickname.setAttribute('disabled', true);
+
+                        buttonConnect.textContent = 'Disconnect';
+
+                        inputMessage.removeAttribute('disabled');
+                        buttonSend.removeAttribute('disabled');
+
+                        addMessage('Connected');
+                    };
+
+                    ws.onmessage = function (event) {
+                        addMessage(event.data);
+                    };
+
+                    ws.onclose = function () {
+                        inputHost.removeAttribute('disabled');
+                        inputPort.removeAttribute('disabled');
+                        inputNickname.removeAttribute('disabled');
+
+                        buttonConnect.textContent = 'Connect';
+
+                        inputMessage.setAttribute('disabled', true);
+                        buttonSend.setAttribute('disabled', true);
+
+                        addMessage('Disconnected');
+                    };
+                } else {
+                    ws.close();
+                }
+            });
+
+            form.onsubmit = function () {
+                ws.send(inputMessage.value);
+                addMessage(`me: ${inputMessage.value}`);
+
+                inputMessage.value = '';
+
+                return false;
+            };
+
+            function addMessage(message) {
+                textarea.value += message + "\n";
+            }
+        });
+    </script>
+</body>
+</html>
