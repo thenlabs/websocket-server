@@ -1,0 +1,27 @@
+{
+    "name": "thenlabs/ws-server",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andy Daniel Navarro Taño",
+            "email": "andaniel05@gmail.com"
+        }
+    ],
+    "require": {
+    },
+    "require-dev": {
+        "thenlabs/pyramidal-tests": "2.0.x-dev",
+        "php-webdriver/webdriver": "^1.8",
+        "friendsofphp/php-cs-fixer": "^3.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "ThenLabs\\WSServer\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ThenLabs\\WSServer\\Tests\\": "tests/"
+        }
+    }
+}
