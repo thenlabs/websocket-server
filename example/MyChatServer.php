@@ -1,9 +1,9 @@
 <?php
 
-use ThenLabs\WebSocketServer\Event\OpenEvent;
-use ThenLabs\WebSocketServer\WebSocketServer;
 use ThenLabs\WebSocketServer\Event\CloseEvent;
 use ThenLabs\WebSocketServer\Event\MessageEvent;
+use ThenLabs\WebSocketServer\Event\OpenEvent;
+use ThenLabs\WebSocketServer\WebSocketServer;
 
 class MyChatServer extends WebSocketServer
 {
@@ -53,4 +53,3 @@ class MyChatServer extends WebSocketServer
         unset($this->users[$nickname]);
     }
 }
-

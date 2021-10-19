@@ -21,10 +21,10 @@ The `example/MyChatServer.php` file contain the class which, like you can see, i
 <?php
 // example/MyChatServer.php
 
-use ThenLabs\WebSocketServer\Event\OpenEvent;
-use ThenLabs\WebSocketServer\WebSocketServer;
 use ThenLabs\WebSocketServer\Event\CloseEvent;
 use ThenLabs\WebSocketServer\Event\MessageEvent;
+use ThenLabs\WebSocketServer\Event\OpenEvent;
+use ThenLabs\WebSocketServer\WebSocketServer;
 
 class MyChatServer extends WebSocketServer
 {
