@@ -143,7 +143,12 @@ class WebSocketServer extends SocketServer
                         $payload = $previousPayload.$payload;
                     }
 
+                    $frames = $webSocketConnection->getBuffer();
+                    $frames[] = $frame;
+
                     $messageEvent = new MessageEvent($this, $webSocketConnection, $payload);
+                    $messageEvent->setFrames($frames);
+
                     $this->dispatcher->dispatch($messageEvent);
                     break;
 
