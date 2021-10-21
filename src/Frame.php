@@ -43,7 +43,7 @@ class Frame
         0 => [ // FIN = 0
             self::OPCODE_CONTINUATION => 0b00000000, // FIN = 0, RSV = 000, OPCODE = 0000
             self::OPCODE_TEXT         => 0b00000001, // FIN = 0, RSV = 000, OPCODE = 0001
-            self::OPCODE_BINARY       => 0b00000011, // FIN = 0, RSV = 000, OPCODE = 0011
+            self::OPCODE_BINARY       => 0b00000010, // FIN = 0, RSV = 000, OPCODE = 0011
             self::OPCODE_CLOSE        => 0b00001000, // FIN = 0, RSV = 000, OPCODE = 1000
             self::OPCODE_PING         => 0b00001001, // FIN = 0, RSV = 000, OPCODE = 1001
             self::OPCODE_PONG         => 0b00001010, // FIN = 0, RSV = 000, OPCODE = 1010
@@ -51,7 +51,7 @@ class Frame
         1 => [ // FIN = 1
             self::OPCODE_CONTINUATION => 0b10000000, // FIN = 1, RSV = 000, OPCODE = 0000
             self::OPCODE_TEXT         => 0b10000001, // FIN = 1, RSV = 000, OPCODE = 0001
-            self::OPCODE_BINARY       => 0b10000011, // FIN = 1, RSV = 000, OPCODE = 0011
+            self::OPCODE_BINARY       => 0b10000010, // FIN = 1, RSV = 000, OPCODE = 0011
             self::OPCODE_CLOSE        => 0b10001000, // FIN = 1, RSV = 000, OPCODE = 1000
             self::OPCODE_PING         => 0b10001001, // FIN = 1, RSV = 000, OPCODE = 1001
             self::OPCODE_PONG         => 0b10001010, // FIN = 1, RSV = 000, OPCODE = 1010
