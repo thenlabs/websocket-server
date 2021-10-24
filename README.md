@@ -1,7 +1,7 @@
 
 # WebSocketServer
 
-A [WebSocket](https://en.wikipedia.org/wiki/WebSocket) server written in PHP.
+An asynchronous WebSocket server written in PHP.
 
 >If you like this project gift us a ⭐.
 
