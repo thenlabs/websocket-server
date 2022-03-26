@@ -27,6 +27,7 @@ class WebSocketServer extends SocketServer
     public function __construct(array $config = [])
     {
         $config['fread_length'] = $config['fread_length'] ?? 1500;
+        $config['logger_name'] = $config['logger_name'] ?? 'thenlabs_websocket_server';
         $config['socket'] = "tcp://{$config['host']}:{$config['port']}";
 
         parent::__construct($config);

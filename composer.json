@@ -26,5 +26,9 @@
         "psr-4": {
             "ThenLabs\\WebSocketServer\\Tests\\": "tests/"
         }
+    },
+    "scripts": {
+        "fix": "./vendor/bin/php-cs-fixer fix",
+        "test": "./vendor/bin/pyramidal"
     }
 }
